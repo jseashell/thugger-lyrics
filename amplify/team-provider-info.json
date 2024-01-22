@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-thuggerlyrics-staging-22228-authRole",
+      "UnauthRoleArn": "arn:aws:iam::008908697155:role/amplify-thuggerlyrics-staging-22228-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::008908697155:role/amplify-thuggerlyrics-staging-22228-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-thuggerlyrics-staging-22228-deployment",
+      "UnauthRoleName": "amplify-thuggerlyrics-staging-22228-unauthRole",
+      "StackName": "amplify-thuggerlyrics-staging-22228",
+      "StackId": "arn:aws:cloudformation:us-east-1:008908697155:stack/amplify-thuggerlyrics-staging-22228/17237430-b8cd-11ee-bb95-0e5e8cfd4ae1",
+      "AmplifyAppId": "d2b5ytoyjbzjs"
+    },
+    "categories": {
+      "function": {
+        "randomLyric": {}
+      }
+    }
+  }
+}
