@@ -1,1 +1,3 @@
-<p class="text-xl text-white">{{ (random$ | async)?.value }}</p>
+<ng-container *ngIf="random$ | async as random">
+  <p>{{ random.value }}</p>
+</ng-container>
