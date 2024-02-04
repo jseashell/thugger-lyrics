@@ -1,9 +1,0 @@
-{
-  "function": {
-    "randomLyric": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    }
-  }
-}

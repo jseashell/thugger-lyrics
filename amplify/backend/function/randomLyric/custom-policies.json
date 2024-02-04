@@ -1,6 +1,0 @@
-[
-  {
-    "Action": ["dynamodb:GetItem"],
-    "Resource": ["arn:aws:dynamodb:*:*:table/thugger-lyrics"]
-  }
-]
