@@ -1,0 +1,19 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 4em;
+    color: white;
+    margin: 2rem 0;
+    font-weight: 300;  
+    user-select: none;  
+}
+
+@media only screen and (max-width: 495px) {
+    h2 {
+        font-size: 2em;
+        margin: 1rem 0;
+    }
+}
