@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ThugComponent } from './thug/thug.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ThugComponent, ToolbarComponent],
+  imports: [RouterOutlet, ThugComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
