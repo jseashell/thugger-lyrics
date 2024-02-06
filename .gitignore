@@ -5,6 +5,8 @@
 /tmp
 /out-tsc
 /bazel-out
+/.serverless
+
 
 # Node
 /node_modules
