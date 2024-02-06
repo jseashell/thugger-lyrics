@@ -45,7 +45,7 @@ router-outlet {
 @media only screen and (max-width: 495px) {
     :host {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, 50%);
+        grid-template-rows: max-content 1fr;
         grid-template-areas: 
           'thug'
           'router';
@@ -58,7 +58,7 @@ router-outlet {
     }
 
     main {
-        align-self: flex-start;
+        align-self: center;
         justify-content: flex-start;
         margin: 0 1rem;
     }
