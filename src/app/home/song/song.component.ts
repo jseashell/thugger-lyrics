@@ -3,7 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject, firstValueFrom } from 'rxjs';
 import { MobileService } from '../../mobile.service';
-import { Song } from './song.interface';
+import { ScrapedSong } from './song.interface';
 import { SongService } from './song.service';
 
 @Component({
@@ -16,7 +16,7 @@ import { SongService } from './song.service';
 })
 export class SongComponent implements OnInit {
   isMobile$!: Observable<boolean>;
-  song$ = new Subject<Song>();
+  scrapedSong$ = new Subject<ScrapedSong>();
 
   constructor(
     private mobileService: MobileService,
@@ -31,7 +31,11 @@ export class SongComponent implements OnInit {
   refresh(e?: Event) {
     e?.stopPropagation();
     firstValueFrom(this.songService.random$).then((song) => {
-      this.song$.next(song);
+      this.scrapedSong$.next(song);
     });
+  }
+
+  trackByItem(scrapedSong: ScrapedSong): string {
+    return scrapedSong.id;
   }
 }

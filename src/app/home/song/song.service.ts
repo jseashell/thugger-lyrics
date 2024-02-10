@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map, of, switchMap } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { Song } from './song.interface';
+import { ScrapedSong } from './song.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -10,12 +10,12 @@ import { Song } from './song.interface';
 export class SongService {
   constructor(private http: HttpClient) {}
 
-  get random$(): Observable<Song> {
-    return this.http.get<Song>(`${environment.api.endpoint}/random`).pipe(
+  get random$(): Observable<ScrapedSong> {
+    return this.http.get<ScrapedSong>(`${environment.api.endpoint}/random`).pipe(
       switchMap((song) => {
         // TODO Implement retry
         if (song.lyrics?.length < 4) {
-          return this.http.get<Song>(`${environment.api.endpoint}/random`);
+          return this.http.get<ScrapedSong>(`${environment.api.endpoint}/random`);
         } else {
           return of(song);
         }

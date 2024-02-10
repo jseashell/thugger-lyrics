@@ -1,14 +1,14 @@
-<ng-container *ngIf="song$ | async as song">
+<ng-container *ngIf="scrapedSong$ | async as scrapedSong">
   <div>
-    <a [href]="song.url" target="_blank">
-      <img [src]="song.header_image_thumbnail_url" width="64" height="64" />
-      {{ song.title }}
+    <a [href]="scrapedSong.song.url" target="_blank">
+      <img [src]="scrapedSong.song.header_image_thumbnail_url" width="64" height="64" />
+      {{ scrapedSong.song.title }}
     </a>
     <ng-container *ngIf="(isMobile$ | async) === true">
       <ng-container *ngTemplateOutlet="refreshBtn"></ng-container>
     </ng-container>
   </div>
-  <p *ngFor="let lyric of song.lyrics">{{ lyric }}</p>
+  <p *ngFor="let lyric of scrapedSong.lyrics">{{ lyric }}</p>
   <ng-container *ngIf="(isMobile$ | async) === false">
     <ng-container *ngTemplateOutlet="refreshBtn"></ng-container>
   </ng-container>
