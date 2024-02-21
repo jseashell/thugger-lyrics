@@ -1,44 +1,60 @@
 p {
-    color: white;
-    font-size: 2em;
-    font-weight: 100;
-    margin: .5rem 0;
+  color: white;
+  font-size: 2em;
+  font-weight: 100;
+  margin: 0.5rem 0;
 }
 
 @media only screen and (max-width: 495px) {
-    p {
-        font-size: 1.5em;
-        text-align: justify;
-    }
+  p {
+    font-size: 1.5em;
+    text-align: justify;
+  }
 }
 
 div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 a {
-    text-decoration: none;
-    font-style: italic;
-    color: white;
-    font-size: 1.5em;
-    display: flex;
-    align-items: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
-a:hover, a:active {
-    color: lime;
+a:hover div span,
+a:active div span {
+  color: lime;
 }
 
 a:hover img {
-    opacity: 50%;
+  opacity: 50%;
 }
 
-a:visited {
-    color: white;
+a:visited div span {
+  color: white;
+}
+
+a div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+a div span.title {
+  color: white;
+  font-size: 1.5em;
+}
+
+a div span.artist {
+  color: white;
+  font-size: 1em;
+  font-style: italic;
 }
 
 img {
-    margin-right: 1rem;
+  margin-right: 1rem;
 }

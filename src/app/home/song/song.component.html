@@ -2,8 +2,10 @@
   <div>
     <a [href]="scrapedSong.song.url" target="_blank">
       <img [src]="scrapedSong.song.header_image_thumbnail_url" width="64" height="64" />
-      {{ scrapedSong.song.title }}
-      <i> ({{ scrapedSong.song.artist_names }})</i>
+      <div>
+        <span class="title">{{ scrapedSong.song.title }}</span>
+        <span class="artist">{{ scrapedSong.song.artist_names }}</span>
+      </div>
     </a>
     <ng-container *ngIf="(isMobile$ | async) === true">
       <ng-container *ngTemplateOutlet="refreshBtn"></ng-container>
