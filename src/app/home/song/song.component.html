@@ -1,3 +1,6 @@
+<div *ngIf="isMock" class="mock">
+  <p>You are currently viewing mock data.</p>
+</div>
 <ng-container *ngIf="scrapedSong$ | async as scrapedSong">
   <div>
     <a [href]="scrapedSong.song.url" target="_blank">

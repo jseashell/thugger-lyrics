@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map, of, switchMap } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { ScrapedSong } from './song.interface';
+import { mockSongs } from './song.mock';
 
 @Injectable({
   providedIn: 'root',
@@ -11,21 +12,22 @@ export class SongService {
   constructor(private http: HttpClient) {}
 
   get random$(): Observable<ScrapedSong> {
-    return this.http.get<ScrapedSong>(`${environment.api.endpoint}/random`).pipe(
-      switchMap((song) => {
-        // TODO Implement retry
-        if (song.lyrics?.length < 4) {
-          return this.http.get<ScrapedSong>(`${environment.api.endpoint}/random`);
-        } else {
-          return of(song);
-        }
-      }),
+    let obs;
+
+    if (environment.mocks.songs) {
+      const i = this.getRandomInt(0, mockSongs.length);
+      obs = of(mockSongs[i]);
+    } else {
+      obs = this.http.get<ScrapedSong>(`${environment.api.endpoint}/random`);
+    }
+
+    return obs.pipe(
       map((song) => {
         const numLyrics = 4;
-        const rand = this.getRandomInt(numLyrics, song.lyrics?.length - numLyrics);
+        const rand = this.getRandomInt(numLyrics, (song.lyrics?.length || 4) - numLyrics);
         return {
           ...song,
-          lyrics: song.lyrics.slice(rand, rand + numLyrics),
+          lyrics: song.lyrics?.slice(rand, rand + numLyrics) || [],
         };
       }),
     );
